@@ -4,43 +4,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace projekttak3
+namespace soutez
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int cislo;
-            int cislo2;
-            int rozdil;
+            int num1, num2, num3;
+            double numA, numB, numC;
+            num1 = int.Parse(Console.ReadLine());
+            num2 = int.Parse(Console.ReadLine());
+            num3 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("zadej 1 číslo");
-            cislo = int.Parse(Console.ReadLine());
-            Console.WriteLine("zadej 2 cislo");
-            cislo2 = int.Parse(Console.ReadLine());
-
-            if (cislo == cislo2)
+            if ((num1 > num2) && (num1 > num3))
             {
-                Console.WriteLine("čísla jsou stejná");
-                return;
+                numA = num1;
+                numB = num2;
+                numC = num3;
+            }
+            else if ((num2 > num1) && (num2 > num3))
+            {
+                numA = num2;
+                numB = num1;
+                numC = num3;
+            }
+            else if ((num3 > num1) && (num3 > num2))
+            {
+                numA = num3;
+                numB = num2;
+                numC = num1;
             }
             else
             {
-                Console.WriteLine("čísla jsou jiná");
+                return;
+            }
+            double numa = numA*numA;
+            double numb = numB*numB;
+            double numc = numC*numC;
 
-                if (cislo > cislo2)
-                {
-                    rozdil = cislo - cislo2;
-                }
-                else if (cislo < cislo2)
-                {
-                    rozdil = cislo2 - cislo;
-                }
-                else
-                {
-                    rozdil = 0;
-                }
-                Console.WriteLine("Rozdíl čísel je: " + rozdil);
+            if (numa == numb + numc)
+            {
+                Console.WriteLine("Trojúhelnik je pravoúhlý");
+            }
+            else
+            {
+                Console.WriteLine("Trojúhelnik není pravoúhlý");
             }
             Console.ReadKey();
         }
